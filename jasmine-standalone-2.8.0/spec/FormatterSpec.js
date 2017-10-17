@@ -20,5 +20,17 @@ var arr = [
   expect(formatter.subdivideStrings(MultiLineString)).toEqual(arr)
 });
 
+it ("Changes the dots to zeroes in our array", function(){
+  var MultiLineString = `..*
+.*.`
+var arr = [
+  [0, 0, "*"],
+  [0, "*", 0]
+];
+  expect(formatter.stringToIntegerArray(MultiLineString)).toEqual(arr)
+});
+
+
+
 
 });
