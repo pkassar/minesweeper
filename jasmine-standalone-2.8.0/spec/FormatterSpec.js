@@ -5,9 +5,20 @@ beforeEach(function() {
   formatter = new Formatter();
 });
 
-  it ("Does not take single line input", function(){
-var OneLineString = "An good example of a one line string"
-expect(formatter.convertStringToArray(OneLineString)).toEqual("Incorrect input, need multi line string")
-  });
+it ("Does not take single line input", function(){
+  var OneLineString = "An good example of a one line string"
+  expect(formatter.convertMultiLineStringToArray(OneLineString)).toEqual("Incorrect input, need multi line string")
+});
+
+it ("Returns an array from multi line input", function(){
+  var MultiLineString = `abc
+def`
+var arr = [
+  ["a", "b", "c"],
+  ["d", "e", "f"]
+];
+  expect(formatter.subdivideStrings(MultiLineString)).toEqual(arr)
+});
+
 
 });

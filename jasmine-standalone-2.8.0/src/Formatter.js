@@ -1,8 +1,18 @@
 function Formatter(){
 };
 
-Formatter.prototype.convertStringToArray = function(string) {
+Formatter.prototype.convertMultiLineStringToArray = function(string) {
   if (string.includes('\n') == false) {
     return 'Incorrect input, need multi line string'
-  } else {return 'success'}
+  }
+  return string.split('\n')
+};
+
+Formatter.prototype.subdivideStrings = function(string) {
+  var twoDimensionalArray = [];
+  var array = this.convertMultiLineStringToArray(string);
+  array.forEach(function(element){
+    twoDimensionalArray.push(element.split(''));
+  });
+  return twoDimensionalArray;
 };
